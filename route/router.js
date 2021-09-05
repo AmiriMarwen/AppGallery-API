@@ -36,6 +36,12 @@ router.get("/apps/:category", async (req, res) => {
   res.json(appsByCategory);
 });
 
+// Get one All Apps with specific Section
+router.get("/apps/:section", async (req, res) => {
+  const appsByCategory = await App.find({ Section: req.params.section });
+  res.json(appsBysection);
+});
+
 // Updating One App By Id From Mongo DB-Atlas
 router.put("/app/:id", async (req, res) => {
   const updates = req.body;

@@ -4,6 +4,11 @@ const applicationSchema = mongoose.Schema(
   {
     Name: { type: String, required: true },
     Type: { type: String, enum: ["Application", "Game"], required: true },
+    Section: {
+      type: String,
+      enum: ["Latest", "Trending", "Recommended"],
+      required: true,
+    },
     Category: { type: String, required: true },
     Logo: { type: String, required: true },
     Version: { type: String, required: true },
@@ -19,7 +24,7 @@ const applicationSchema = mongoose.Schema(
     Screens: [{ type: String }],
   },
   {
-    timestamps: true, 
+    timestamps: true,
   }
 );
 
